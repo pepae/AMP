@@ -1,6 +1,6 @@
 import { http, createConfig } from "wagmi";
 import { gnosis } from "wagmi/chains";
-import { getDefaultConfig } from "@rainbow-me/rainbowkit";
+import { coinbaseWallet, metaMask, walletConnect } from "wagmi/connectors";
 
 // Chiado testnet definition
 // Multicall3 is deployed at the standard address on Chiado:
@@ -25,11 +25,25 @@ export const chiado = {
   testnet: true,
 } as const;
 
-// Register a free WalletConnect project at https://cloud.reown.com
-// then set VITE_WC_PROJECT_ID in your .env or CI environment.
-export const wagmiConfig = getDefaultConfig({
-  appName: "AMP Marketplace",
-  projectId: import.meta.env.VITE_WC_PROJECT_ID ?? "",
+const walletConnectProjectId = import.meta.env.VITE_WC_PROJECT_ID?.trim();
+
+const connectors = [
+  metaMask(),
+  coinbaseWallet({
+    appName: "AMP Marketplace",
+  }),
+  ...(walletConnectProjectId
+    ? [
+        walletConnect({
+          projectId: walletConnectProjectId,
+          showQrModal: true,
+        }),
+      ]
+    : []),
+];
+
+export const wagmiConfig = createConfig({
+  connectors,
   chains: [chiado, gnosis],
   transports: {
     [chiado.id]: http("https://rpc.chiadochain.net"),
