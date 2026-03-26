@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - "web/**"
+      - "amp-protocol/web/**"
       - ".github/workflows/deploy-web.yml"
   workflow_dispatch:
 
@@ -27,24 +27,23 @@ jobs:
         with:
           node-version: 20
           cache: npm
-          cache-dependency-path: web/package-lock.json
+          cache-dependency-path: amp-protocol/web/package-lock.json
 
       - name: Install dependencies
         run: npm ci
-        working-directory: web
+        working-directory: amp-protocol/web
 
       - name: Build
         run: npm run build
-        working-directory: web
+        working-directory: amp-protocol/web
         env:
-          # Set to /repo-name/ if deploying to username.github.io/repo-name/
-          # Leave empty (or set to /) for a custom domain or organisation pages root
-          VITE_BASE_URL: ${{ vars.VITE_BASE_URL || '/' }}
+          # pepae.github.io/AMP/ — must match the repo name exactly
+          VITE_BASE_URL: /AMP/
 
       - name: Upload pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: web/dist
+          path: amp-protocol/web/dist
 
   deploy:
     needs: build
