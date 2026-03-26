@@ -4,6 +4,8 @@ import { api, type Listing } from "../lib/api";
 import { CATEGORY_OPTIONS, CATEGORY_CONFIG } from "../lib/constants";
 import ListingCard from "../components/ListingCard";
 
+const SPEC_URL = "https://github.com/pepae/AMP/blob/main/AMP-Protocol-Spec.md";
+
 const LAYERS = [
   {
     num: "1",
@@ -50,13 +52,24 @@ export default function HomePage() {
           A single on-chain listing standard for accommodation, transport, services, goods, and more.
           Agents negotiate. Humans approve.
         </p>
-        <div className="flex justify-center gap-3">
+        <div className="flex flex-wrap justify-center gap-3">
           <Link to="/browse" data-testid="hero-browse-btn" className="btn-primary">
             Browse Listings
           </Link>
           <Link to="/create" data-testid="hero-create-btn" className="btn-outline">
             Create Listing
           </Link>
+          <Link to="/agent-setup" className="btn-outline">
+            Add This To Your Agent
+          </Link>
+        </div>
+        <div className="mt-5 flex flex-wrap justify-center gap-4 text-sm">
+          <Link to="/agent-setup" className="font-semibold text-blue-600 hover:text-blue-700 transition-colors">
+            Claude skill, OpenClaw skill, and MCP setup →
+          </Link>
+          <a href={SPEC_URL} target="_blank" rel="noreferrer" className="font-semibold text-slate-700 hover:text-slate-900 transition-colors">
+            Read the protocol spec on GitHub
+          </a>
         </div>
       </div>
 
@@ -70,12 +83,22 @@ export default function HomePage() {
             <span className="text-sm font-semibold text-slate-700">Agent Marketplace Protocol</span>
             <span className="text-xs font-mono text-slate-400">· Specification v0.1 · March 2026</span>
           </div>
-          <Link
-            to="/protocol"
-            className="text-xs font-semibold text-blue-600 hover:text-blue-700 transition-colors"
-          >
-            Read full spec →
-          </Link>
+          <div className="flex items-center gap-4">
+            <Link
+              to="/protocol"
+              className="text-xs font-semibold text-blue-600 hover:text-blue-700 transition-colors"
+            >
+              Read full spec →
+            </Link>
+            <a
+              href={SPEC_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="text-xs font-semibold text-slate-700 hover:text-slate-900 transition-colors"
+            >
+              GitHub Spec
+            </a>
+          </div>
         </div>
 
         <div className="px-6 py-5">
@@ -98,6 +121,18 @@ export default function HomePage() {
                 <div className="text-xs text-slate-500 leading-relaxed">{text}</div>
               </div>
             ))}
+          </div>
+
+          <div className="flex flex-wrap items-center justify-between gap-4 border border-blue-200 bg-blue-50 px-4 py-4 mb-5">
+            <div>
+              <div className="text-xs font-bold uppercase tracking-widest text-blue-700 mb-1">Agent Install</div>
+              <p className="text-sm text-slate-600">
+                Add AMP to a Claude skill, OpenClaw skill, or Claude Desktop MCP setup.
+              </p>
+            </div>
+            <Link to="/agent-setup" className="btn-primary">
+              Open Agent Setup
+            </Link>
           </div>
 
           {/* The user story teaser */}

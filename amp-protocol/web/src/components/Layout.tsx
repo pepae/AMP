@@ -5,6 +5,7 @@ import { type ReactNode } from "react";
 const navLinks = [
   { href: "/",            label: "Home" },
   { href: "/protocol",   label: "Protocol" },
+  { href: "/agent-setup", label: "Add to Agent" },
   { href: "/browse",      label: "Browse" },
   { href: "/create",      label: "Create Listing", "data-testid": "nav-create" },
   { href: "/my/listings", label: "My Listings" },
