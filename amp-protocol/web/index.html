@@ -22,9 +22,10 @@
           }, {});
           if (params.p !== undefined) {
             var base = window.location.pathname.split('/').slice(0, 2).join('/');
+            var path = String(params.p).replace(/^\/+/, '');
             history.replaceState(
               null, null,
-              base + '/' + params.p +
+              base + '/' + path +
               (params.q ? '?' + params.q : '') +
               window.location.hash
             );
