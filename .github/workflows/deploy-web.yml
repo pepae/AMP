@@ -25,7 +25,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
           cache-dependency-path: amp-protocol/web/package-lock.json
 
@@ -34,10 +34,10 @@ jobs:
         working-directory: amp-protocol/web
 
       - name: Build
-        run: npm run build
+        run: npx vite build
         working-directory: amp-protocol/web
         env:
-          # pepae.github.io/AMP/ — must match the repo name exactly
+          # pepae.github.io/AMP/ -- must match the repo name exactly
           VITE_BASE_URL: /AMP/
 
       - name: Upload pages artifact
