@@ -6,12 +6,14 @@ import CreateListingPage from "./pages/CreateListingPage";
 import MyListingsPage from "./pages/MyListingsPage";
 import MyOrdersPage from "./pages/MyOrdersPage";
 import HomePage from "./pages/HomePage";
+import ProtocolPage from "./pages/ProtocolPage";
 
 export default function App() {
   return (
     <Layout>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/protocol" element={<ProtocolPage />} />
         <Route path="/browse" element={<BrowsePage />} />
         <Route path="/listing/:id" element={<ListingDetailPage />} />
         <Route path="/create" element={<CreateListingPage />} />
