@@ -4,6 +4,34 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AMP — Agent Marketplace Protocol</title>
+    <script>
+      // GitHub Pages SPA redirect — restore the path encoded by 404.html
+      (function() {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, null, redirect);
+        }
+        // Also handle the ?p= query param from 404.html redirect
+        var search = window.location.search;
+        if (search.indexOf('?p=') === 0 || search.indexOf('&p=') > -1) {
+          var params = search.slice(1).split('&').reduce(function(p, s) {
+            var e = s.split('=');
+            p[e[0]] = e.slice(1).join('=').replace(/~and~/g, '&');
+            return p;
+          }, {});
+          if (params.p !== undefined) {
+            var base = window.location.pathname.split('/').slice(0, 2).join('/');
+            history.replaceState(
+              null, null,
+              base + '/' + params.p +
+              (params.q ? '?' + params.q : '') +
+              window.location.hash
+            );
+          }
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

@@ -16,7 +16,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <WagmiProvider config={wagmiConfig}>
       <QueryClientProvider client={queryClient}>
         <RainbowKitProvider>
-          <BrowserRouter>
+          <BrowserRouter basename={import.meta.env.BASE_URL}>
             <App />
           </BrowserRouter>
         </RainbowKitProvider>
