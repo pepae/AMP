@@ -5,17 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AMP — Agent Marketplace Protocol</title>
     <script>
-      // GitHub Pages SPA redirect.
-      // Encodes the current path/query/hash into a query parameter so
-      // index.html (the React app) can restore it via history.replaceState.
+      // GitHub Pages SPA redirect for hash-based routes.
+      // Encodes the current path/query into query parameters so index.html
+      // can restore them under /#/... on first load.
       var segmentCount = 1; // number of path segments in the repo name (1 for /AMP)
       var l = window.location;
       l.replace(
         l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
         l.pathname.split('/').slice(0, 1 + segmentCount).join('/') + '/?p=/' +
         l.pathname.slice(1).split('/').slice(segmentCount).join('/').replace(/&/g, '~and~') +
-        (l.search ? '&q=' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-        l.hash
+        (l.search ? '&q=' + l.search.slice(1).replace(/&/g, '~and~') : '')
       );
     </script>
   </head>

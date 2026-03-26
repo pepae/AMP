@@ -5,14 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AMP — Agent Marketplace Protocol</title>
     <script>
-      // GitHub Pages SPA redirect — restore the path encoded by 404.html
+      // Restore hash-based routes encoded by 404.html for GitHub Pages.
       (function() {
-        var redirect = sessionStorage.redirect;
-        delete sessionStorage.redirect;
-        if (redirect && redirect !== location.href) {
-          history.replaceState(null, null, redirect);
-        }
-        // Also handle the ?p= query param from 404.html redirect
         var search = window.location.search;
         if (search.indexOf('?p=') === 0 || search.indexOf('&p=') > -1) {
           var params = search.slice(1).split('&').reduce(function(p, s) {
@@ -23,11 +17,13 @@
           if (params.p !== undefined) {
             var base = window.location.pathname.split('/').slice(0, 2).join('/');
             var path = String(params.p).replace(/^\/+/, '');
+            var target = base + '/';
+            if (path) {
+              target += '#/' + path;
+            }
             history.replaceState(
               null, null,
-              base + '/' + path +
-              (params.q ? '?' + params.q : '') +
-              window.location.hash
+              target + (params.q ? '?' + params.q : '')
             );
           }
         }
