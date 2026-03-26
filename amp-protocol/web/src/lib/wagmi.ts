@@ -25,9 +25,11 @@ export const chiado = {
   testnet: true,
 } as const;
 
+// Register a free WalletConnect project at https://cloud.reown.com
+// then set VITE_WC_PROJECT_ID in your .env or CI environment.
 export const wagmiConfig = getDefaultConfig({
   appName: "AMP Marketplace",
-  projectId: "amp-marketplace-mvp",   // WalletConnect project ID (public demo)
+  projectId: import.meta.env.VITE_WC_PROJECT_ID ?? "",
   chains: [chiado, gnosis],
   transports: {
     [chiado.id]: http("https://rpc.chiadochain.net"),

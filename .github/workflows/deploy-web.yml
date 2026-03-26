@@ -39,6 +39,8 @@ jobs:
         env:
           # pepae.github.io/AMP/ -- must match the repo name exactly
           VITE_BASE_URL: /AMP/
+          # Register at https://cloud.reown.com and add as a repo secret/variable
+          VITE_WC_PROJECT_ID: ${{ vars.VITE_WC_PROJECT_ID }}
 
       - name: Upload pages artifact
         uses: actions/upload-pages-artifact@v3
