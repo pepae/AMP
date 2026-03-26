@@ -1,0 +1,13 @@
+{
+  "network": "chiado",
+  "chainId": 10200,
+  "deployedAt": "2026-03-26T10:30:05.321Z",
+  "deployer": "0x5316a230Bfc6762cF1aF2E8853AD8fF1C4412203",
+  "treasury": "0x5316a230Bfc6762cF1aF2E8853AD8fF1C4412203",
+  "arbitrator": "0x5316a230Bfc6762cF1aF2E8853AD8fF1C4412203",
+  "contracts": {
+    "ListingRegistry": "0x01517B12805AdeC6dCb978FDB139c3bD0A92879E",
+    "AMPEscrow": "0xADaA2Eb39eCDfbb457D36d34951daEd08179e3c8",
+    "ReputationLedger": "0x79145D065c713596e1c2a1715c5c655dC3641CB5"
+  }
+}

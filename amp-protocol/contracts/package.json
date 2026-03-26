@@ -1,0 +1,24 @@
+{
+  "name": "@amp-protocol/contracts",
+  "version": "0.1.0",
+  "description": "AMP smart contracts for Gnosis Chain",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "test:gas": "REPORT_GAS=true hardhat test",
+    "deploy:chiado": "hardhat run deploy/001_deploy_all.js --network chiado",
+    "deploy:local": "hardhat run deploy/001_deploy_all.js --network localhost",
+    "node": "hardhat node",
+    "clean": "hardhat clean",
+    "size": "hardhat size-contracts"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "hardhat": "^2.22.0",
+    "hardhat-contract-sizer": "^2.10.0"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.0.2",
+    "dotenv": "^16.4.5"
+  }
+}

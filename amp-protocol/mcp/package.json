@@ -1,0 +1,20 @@
+{
+  "name": "@amp-protocol/mcp-server",
+  "version": "0.1.0",
+  "description": "MCP server for the AMP Agent Marketplace Protocol",
+  "type": "module",
+  "bin": {
+    "amp-mcp": "./src/index.js"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node src/index.js --help 2>&1 || true"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "ethers": "^6.13.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

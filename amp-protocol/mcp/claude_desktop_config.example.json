@@ -1,0 +1,16 @@
+{
+  "_comment": "Example Claude Desktop MCP configuration for the AMP marketplace server.",
+  "_instructions": "Add the 'amp' entry under mcpServers in your claude_desktop_config.json file.",
+  "mcpServers": {
+    "amp": {
+      "command": "node",
+      "args": ["C:/path/to/amp-protocol/mcp/src/index.js"],
+      "env": {
+        "AMP_INDEXER": "http://localhost:3001",
+        "AMP_RPC": "https://rpc.chiadochain.net",
+        "AMP_CHAIN_ID": "10200",
+        "AMP_PRIVATE_KEY": "0x_your_private_key_here"
+      }
+    }
+  }
+}

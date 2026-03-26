@@ -1,0 +1,53 @@
+# Dependencies (all levels)
+node_modules/
+.pnp
+.pnp.js
+
+# Build outputs
+dist/
+build/
+out/
+
+# Environment variables — NEVER commit private keys
+.env
+.env.local
+.env.*.local
+
+# Hardhat / Solidity
+amp-protocol/contracts/cache/
+amp-protocol/contracts/artifacts/
+amp-protocol/contracts/typechain-types/
+amp-protocol/contracts/coverage/
+amp-protocol/contracts/.nyc_output/
+
+# Foundry
+amp-protocol/contracts/out/
+amp-protocol/contracts/broadcast/*/run-latest.json
+
+# Indexer persisted state
+amp-protocol/indexer/data/
+
+# Playwright
+amp-protocol/e2e/test-results/
+amp-protocol/e2e/playwright-report/
+amp-protocol/e2e/.auth/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+
+# TypeScript incremental build info
+*.tsbuildinfo
